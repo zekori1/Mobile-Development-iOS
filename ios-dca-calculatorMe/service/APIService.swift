@@ -13,31 +13,92 @@ import Combine
 
 struct APIService {
     
+    
+//    описываем служебную ошибку
+    enum APIServiceError: Error {
+        case encoding
+        case badRequest
+    }
+    
     var API_KEY: String {
         return keys.randomElement() ?? ""
     }
     
-    let keys = ["MMBIXCUS535UXHW2", "7KO9H8QNK8XQACDB", "UVBMCRVD6E9F46UR"]
+    let keys = ["W2PKXXL8YG7F0LG6", "2SJF5W0TBQ3JB9X3", "1JKUFQI07CXAS8F6"]
     // каждый ключ работает раз в 5 минут
     
     func fetchSymbolsPublisher(keywords: String)  -> AnyPublisher<SearchResults, Error> {
         
-        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keywords)&apikey=\(API_KEY)"
-    //создаем строку URL-адреса
-    
-        let url = URL (string: urlString)!
-    
-    // строим сеанс URL
-    
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map ({ $0.data})
-            .decode (type: SearchResults.self, decoder: JSONDecoder())
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher ()
+//        кодируем слова keywords в URL
+        let result = parseQuery(text: keywords)
+        var symbol = String()
+        switch result {
+        case .success(let query):
+            symbol = query
+        case.failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        } //создаем строку URL-адреса
+        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(symbol)&apikey=\(API_KEY)"
+        let urlResult = parseURL(urlString: urlString)
+        
+        switch urlResult {
+        case.success(let url):
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .map ({ $0.data})
+                .decode (type: SearchResults.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher ()
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     
     
     
     }
+//    добавляем функцию, чтобы узнать время
+    func fetchTimeSeriesMonthlyAdjustedPublisher(keywords: String) -> AnyPublisher <TimeSeriesMonthlyAdjusted, Error> {
+        let result = parseQuery(text: keywords)
+        
+        var symbol = String()
+        
+        switch result {
+        case .success(let query):
+            symbol = query
+        case.failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        
+        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(symbol)&apikey=\(API_KEY)"
+    //создаем строку URL-адреса
     
+        let urlResult = parseURL(urlString: urlString)
+        
+        switch urlResult {
+        case.success(let url):
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .map ({ $0.data})
+                .decode (type: TimeSeriesMonthlyAdjusted.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher ()
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
     
+    private func parseQuery(text: String) -> Result <String, Error> {
+        
+        if let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            return.success(query)
+        } else {
+            return.failure(APIServiceError.encoding)
+        }
+    }
+    
+    private func parseURL(urlString: String) -> Result <URL, Error> {
+        if let url = URL (string: urlString) {
+            return.success(url)
+        } else {
+            return.failure(APIServiceError.badRequest)
+        }
+    }
 }

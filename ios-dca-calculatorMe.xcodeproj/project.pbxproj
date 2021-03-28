@@ -18,6 +18,15 @@
 		D0A632062607A5490047DCA1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A632052607A5490047DCA1 /* SearchTableViewCell.swift */; };
 		D0A6320A2607C5E60047DCA1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A632092607C5E60047DCA1 /* APIService.swift */; };
 		D0A6320E2607CB860047DCA1 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6320D2607CB860047DCA1 /* SearchResults.swift */; };
+		D0A63222260E6C700047DCA1 /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A63221260E6C700047DCA1 /* SearchPlaceholderView.swift */; };
+		D0A63228260FA29B0047DCA1 /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A63227260FA29B0047DCA1 /* UIAnimatable.swift */; };
+		D0A6322B260FE18B0047DCA1 /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6322A260FE18B0047DCA1 /* TimeSeriesMonthlyAdjusted.swift */; };
+		D0A6322E2610AADF0047DCA1 /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6322D2610AADF0047DCA1 /* CalculatorTableViewController.swift */; };
+		D0A632312610AC7B0047DCA1 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A632302610AC7B0047DCA1 /* Asset.swift */; };
+		D0A632352610B56A0047DCA1 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A632342610B56A0047DCA1 /* String+Extensions.swift */; };
+		D0A632392610CCE10047DCA1 /* UITextfield+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A632382610CCE10047DCA1 /* UITextfield+Extensions.swift */; };
+		D0A6323C2610DEE60047DCA1 /* DateSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6323B2610DEE60047DCA1 /* DateSelectionTableViewController.swift */; };
+		D0A6323F2610F2280047DCA1 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A6323E2610F2280047DCA1 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +45,15 @@
 		D0A632052607A5490047DCA1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		D0A632092607C5E60047DCA1 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D0A6320D2607CB860047DCA1 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		D0A63221260E6C700047DCA1 /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
+		D0A63227260FA29B0047DCA1 /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
+		D0A6322A260FE18B0047DCA1 /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
+		D0A6322D2610AADF0047DCA1 /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
+		D0A632302610AC7B0047DCA1 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		D0A632342610B56A0047DCA1 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		D0A632382610CCE10047DCA1 /* UITextfield+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextfield+Extensions.swift"; sourceTree = "<group>"; };
+		D0A6323B2610DEE60047DCA1 /* DateSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionTableViewController.swift; sourceTree = "<group>"; };
+		D0A6323E2610F2280047DCA1 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +107,8 @@
 		D050010F2606060E0079D1C0 /* ios-dca-calculatorMe */ = {
 			isa = PBXGroup;
 			children = (
+				D0A632332610B4E80047DCA1 /* extensions */,
+				D0A63226260FA2640047DCA1 /* protocol */,
 				D0A6320C2607CB550047DCA1 /* model */,
 				D0A632082607C5BC0047DCA1 /* service */,
 				D0A632032607A4AD0047DCA1 /* controller */,
@@ -107,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A632052607A5490047DCA1 /* SearchTableViewCell.swift */,
+				D0A63221260E6C700047DCA1 /* SearchPlaceholderView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -115,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				D05001142606060E0079D1C0 /* SearchTableViewController.swift */,
+				D0A6322D2610AADF0047DCA1 /* CalculatorTableViewController.swift */,
+				D0A6323B2610DEE60047DCA1 /* DateSelectionTableViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -131,8 +154,28 @@
 			isa = PBXGroup;
 			children = (
 				D0A6320D2607CB860047DCA1 /* SearchResults.swift */,
+				D0A6322A260FE18B0047DCA1 /* TimeSeriesMonthlyAdjusted.swift */,
+				D0A632302610AC7B0047DCA1 /* Asset.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		D0A63226260FA2640047DCA1 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D0A63227260FA29B0047DCA1 /* UIAnimatable.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		D0A632332610B4E80047DCA1 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0A632342610B56A0047DCA1 /* String+Extensions.swift */,
+				D0A632382610CCE10047DCA1 /* UITextfield+Extensions.swift */,
+				D0A6323E2610F2280047DCA1 /* Date+Extensions.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,12 +293,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A6323C2610DEE60047DCA1 /* DateSelectionTableViewController.swift in Sources */,
 				D05001152606060E0079D1C0 /* SearchTableViewController.swift in Sources */,
+				D0A63228260FA29B0047DCA1 /* UIAnimatable.swift in Sources */,
 				D0A6320A2607C5E60047DCA1 /* APIService.swift in Sources */,
+				D0A632312610AC7B0047DCA1 /* Asset.swift in Sources */,
+				D0A632352610B56A0047DCA1 /* String+Extensions.swift in Sources */,
+				D0A6322E2610AADF0047DCA1 /* CalculatorTableViewController.swift in Sources */,
 				D0A632062607A5490047DCA1 /* SearchTableViewCell.swift in Sources */,
+				D0A6323F2610F2280047DCA1 /* Date+Extensions.swift in Sources */,
 				D05001112606060E0079D1C0 /* AppDelegate.swift in Sources */,
+				D0A6322B260FE18B0047DCA1 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				D0A6320E2607CB860047DCA1 /* SearchResults.swift in Sources */,
 				D05001132606060E0079D1C0 /* SceneDelegate.swift in Sources */,
+				D0A632392610CCE10047DCA1 /* UITextfield+Extensions.swift in Sources */,
+				D0A63222260E6C700047DCA1 /* SearchPlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

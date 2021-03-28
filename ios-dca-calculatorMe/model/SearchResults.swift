@@ -9,13 +9,10 @@
 import Foundation
 
 struct SearchResults: Decodable {
-    
     let items: [SearchResult]
-    
     //удержание ключей будет ключом строкового кодирования не по типу
-    
     enum CodingKeys: String, CodingKey {
-        case items = "bestMaches"
+        case items = "bestMatches"
     }
     
 }
@@ -29,11 +26,11 @@ struct SearchResult: Decodable {
     //API возвращает ключ-значение в порядке: 1, 2, 3. Нужно переназначить
     //используем ключи кодировани
     
-    enum CodibgKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case symbol = "1. symbol"
         case name = "2. name"
         case type = "3. type"
-        case currence = "8. currency"
+        case currency = "8. currency"
     }
 }
 
