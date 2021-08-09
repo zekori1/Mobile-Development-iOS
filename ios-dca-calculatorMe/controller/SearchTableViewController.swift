@@ -86,7 +86,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath) as! SearchTableViewCell
         if let searchResults = self.searchResults {
             let searchResult  = searchResults.items[indexPath.row]
             cell.configure(with: searchResult)
